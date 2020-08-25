@@ -32,11 +32,11 @@ import com.firstlinecode.granite.lite.integration.AbstractConnectionContext.Proc
 import com.firstlinecode.granite.lite.integration.AbstractConnectionContext.StringOutConnectionContext;
 
 @Component(value="lite.stream.2.parsing.message.receiver",
-	alias={
-		"lite.parsing.2.processing.message.receiver",
-		"lite.any.2.event.message.receiver",
-		"lite.any.2.routing.message.receiver"
-	}
+		alias={
+				"lite.parsing.2.processing.message.receiver",
+				"lite.any.2.event.message.receiver",
+				"lite.any.2.routing.message.receiver"
+		}
 )
 public class MessageReceiver extends AbstractMessageReceiver implements IMessageIntegrator, IConfigurationAware,
 		IBundleContextAware, IComponentIdAware, IApplicationConfigurationAware {
@@ -170,7 +170,7 @@ public class MessageReceiver extends AbstractMessageReceiver implements IMessage
 			if (session == null && !domain.equals(sessionJid.toString()))
 				return null;
 		}
-		
+
 		if (Constants.PIPE_POSITION_LITE_STREAM_2_PARSING.equals(pipePosition)) {
 			return new ObjectOutConnectionContext(session, messageChannel);
 		} else if (Constants.PIPE_POSITION_LITE_PARSING_2_PROCESSING.equals(pipePosition)) {

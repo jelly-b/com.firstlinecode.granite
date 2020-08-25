@@ -920,6 +920,11 @@
 				<version>${sand.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>com.firstlinecode.sand.server</groupId>
+				<artifactId>com.firstlinecode.sand.server.keepalive</artifactId>
+				<version>${sand.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.firstlinecode.sand.server.lite</groupId>
 				<artifactId>com.firstlinecode.sand.server.lite.concentrator</artifactId>
 				<version>${sand.version}</version>
@@ -957,35 +962,11 @@
 				<version>${gem.version}</version>
 				<optional>true</optional>
 			</dependency>
-		</dependencies>
-	</dependencyManagement>
-	
-	<distributionManagement>
-                <repository>
-                        <id>com.firstlinecode.releases</id>
-                        <name>FirstLineCode Repository - Releases</name>
-                        <url>http://47.115.36.99/repository/maven-releases/</url>
-                </repository>
 
-                <snapshotRepository>
-                        <id>com.firstlinecode.snapshots</id>
-                        <name>FirstLineCode Repository - Snapshots</name>
-                        <url>http://47.115.36.99/repository/maven-snapshots/</url>
-                </snapshotRepository>
-        </distributionManagement>
-</project>
-		<dependency>
-			<groupId>com.firstlinecode.sand.demo</groupId>
-			<artifactId>com.firstlinecode.sand.demo.server</artifactId>
-			<version>${sand.version}</version>
-		</dependency>
-
-			<!-- gem plugins -->
 			<dependency>
-				<groupId>com.firstlinecode.gem.server</groupId>
-				<artifactId>com.firstlinecode.gem.server.bxmpp</artifactId>
-				<version>${gem.version}</version>
-				<optional>true</optional>
+				<groupId>com.firstlinecode.sand.demo</groupId>
+				<artifactId>com.firstlinecode.sand.demo.server</artifactId>
+				<version>${sand.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

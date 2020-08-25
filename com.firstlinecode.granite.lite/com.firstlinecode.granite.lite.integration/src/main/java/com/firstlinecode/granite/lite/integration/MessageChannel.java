@@ -12,11 +12,11 @@ import com.firstlinecode.granite.framework.core.integration.IMessageChannel;
 import com.firstlinecode.granite.framework.core.repository.IComponentIdAware;
 
 @Component(value="lite.stream.2.parsing.message.channel",
-	alias={
-			"lite.parsing.2.processing.message.channel",
-			"lite.any.2.event.message.channel",
-			"lite.any.2.routing.message.channel",
-			"lite.routing.2.stream.message.channel"
+		alias={
+				"lite.parsing.2.processing.message.channel",
+				"lite.any.2.event.message.channel",
+				"lite.any.2.routing.message.channel",
+				"lite.routing.2.stream.message.channel"
 		}
 )
 public class MessageChannel implements IMessageChannel, IConfigurationAware,

@@ -315,7 +315,7 @@ public class MinimumMessageParsingProcessor implements IMessageProcessor, IBundl
 	public void process(IConnectionContext context, IMessage message) {
 		String msg = (String)message.getPayload();
 		for (IPipePreprocessor preprocessor : preprocessors) {
-			msg = preprocessor.beforeParsing(msg);
+			msg = preprocessor.beforeParsing(msg, context);
 			
 			if (msg == null)
 				return;

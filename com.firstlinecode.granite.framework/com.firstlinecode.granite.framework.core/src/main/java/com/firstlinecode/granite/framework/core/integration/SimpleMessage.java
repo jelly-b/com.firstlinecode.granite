@@ -42,4 +42,12 @@ public class SimpleMessage implements IMessage {
 		return payload;
 	}
 
+
+	@Override
+	public String toString() {
+		return "SimpleMessage{" +
+				"headers=" + headers +
+				", payload=" + payload +
+				'}';
+	}
 }
