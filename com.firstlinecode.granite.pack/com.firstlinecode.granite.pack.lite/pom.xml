@@ -121,6 +121,10 @@
 			<artifactId>com.firstlinecode.sand.server.concentrator</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.firstlinecode.sand.server</groupId>
+			<artifactId>com.firstlinecode.sand.server.keepalive</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.firstlinecode.sand.server.lite</groupId>
 			<artifactId>com.firstlinecode.sand.server.lite.concentrator</artifactId>
 		</dependency>

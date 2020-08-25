@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
+import com.firstlinecode.granite.framework.core.integration.IMessage;
+import com.firstlinecode.granite.framework.core.routing.MessageChannelAware;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.osgi.framework.ServiceReference;
@@ -274,7 +276,11 @@ public class ApplicationService implements IComponentCollector, IApplicationComp
 		if (object instanceof IApplicationComponentServiceAware) {
 			((IApplicationComponentServiceAware)object).setApplicationComponentService(this);
 		}
-		
+
+		if (object instanceof MessageChannelAware) {
+			((MessageChannelAware)object).setMessageChannel(new MessageChannelProxy(((MessageChannelAware)object).getMessageChannelId()));
+		}
+
 		if (object instanceof IInitializable) {
 			((IInitializable)object).init();
 		}
@@ -283,7 +289,33 @@ public class ApplicationService implements IComponentCollector, IApplicationComp
 	private IEventProducer createEventProducer() {
 		return new EventProducerProxy();
 	}
-	
+
+	private class MessageChannelProxy implements IMessageChannel {
+		private IMessageChannel messageChannel;
+		private String messageChannelId;
+
+		public MessageChannelProxy(String messageChannelId) {
+			this.messageChannelId = messageChannelId;
+		}
+
+		@Override
+		public void send(IMessage message) {
+			if (messageChannel == null) {
+				messageChannelId = "lite.any.2.routing.message.channel";
+				ISingletonHolder singletonHolder = ((ISingletonHolder)repository);
+				messageChannel = (IMessageChannel)singletonHolder.get(messageChannelId);
+//				if (messageChannel == null) {
+//					messageChannelId = "cluster.any.2.routing.message.channel";
+//					messageChannel = (IMessageChannel)singletonHolder.get(messageChannelId);
+//				}
+			}
+			if (messageChannel == null)
+				throw new RuntimeException("Can't create message channel for " +  messageChannelId);
+
+			messageChannel.send(message);
+		}
+	}
+
 	private class EventProducerProxy implements IEventProducer {
 		private IMessageChannel anyToEventMessageChannel;
 

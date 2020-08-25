@@ -101,6 +101,10 @@
 			<artifactId>com.firstlinecode.sand.server.concentrator</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.firstlinecode.sand.server</groupId>
+			<artifactId>com.firstlinecode.sand.server.keepalive</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>com.firstlinecode.sand.server.lite</groupId>
 			<artifactId>com.firstlinecode.sand.server.lite.concentrator</artifactId>
 		</dependency>
@@ -108,34 +112,6 @@
 			<groupId>com.firstlinecode.sand.server</groupId>
 			<artifactId>com.firstlinecode.sand.server.operator</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.firstlinecode.sand.server</groupId>
-			<artifactId>com.firstlinecode.sand.server.emulators.modes</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.firstlinecode.sand.demo</groupId>
-			<artifactId>com.firstlinecode.sand.demo.server.lite</artifactId>
-		</dependency>
-	</dependencies>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>com.firstlinecode.granite.lite.pack.Main</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
-</project>
 		<dependency>
 			<groupId>com.firstlinecode.sand.server</groupId>
 			<artifactId>com.firstlinecode.sand.server.emulators.modes</artifactId>
